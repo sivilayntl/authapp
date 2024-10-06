@@ -1,5 +1,12 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { AuthProvider } from "./Providers";
+
+const geistphetsarathOT = localFont({
+  src: "./fonts/PhetsarathOT.ttf",
+  variable: "--font-geist-PhetsarathOT",
+  weight: "100 900",
+});
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -21,9 +28,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistphetsarathOT.variable} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <AuthProvider>
         {children}
+        </AuthProvider>
       </body>
     </html>
   );
